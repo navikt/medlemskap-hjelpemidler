@@ -1,2 +1,2 @@
 # medlemskap-hjelpemidler
-Medlemskapsvurderinger for DigiHOT
+Medlemskapsvurderinger for DigiHOT.
