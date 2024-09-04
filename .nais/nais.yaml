@@ -36,13 +36,8 @@ spec:
   accessPolicy:
     outbound:
       rules:
-        - application: medlemskap-oppslag-pdfgen
       external:
-        - host: api-gw-q1.oera.no
-        - host: api-gw-q2.oera.no
-        - host: saf.dev-fss-pub.nais.io
         - host: login.microsoftonline.com
-        - host: dokarkiv.dev-fss-pub.nais.io
   resources:
     limits:
       cpu: "200m"
@@ -51,15 +46,3 @@ spec:
       cpu: "200m"
       memory: "256Mi"
   env:
-    - name: PDF_GEN_BASE_URL
-      value: http://medlemskap-oppslag-pdfgen.medlemskap.svc.cluster.local
-    - name: AZURE_TENANT
-      value: 966ac572-f5b7-4bbe-aa88-c76419c0f851
-    - name: AZURE_AUTHORITY_ENDPOINT
-      value: https://login.microsoftonline.com
-    - name: SECURITY_TOKEN_SERVICE_URL
-      value: https://api-gw-q1.oera.no/sts/SecurityTokenServiceProvider/
-    - name: SECURITY_TOKEN_SERVICE_REST_URL
-      value: https://api-gw-q1.oera.no/security-token-service
-    - name: PERSISTENCE_ENABLED
-      value: Ja
