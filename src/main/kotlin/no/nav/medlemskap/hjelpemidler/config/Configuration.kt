@@ -10,11 +10,9 @@ private val logger = KotlinLogging.logger { }
 private val defaultProperties = ConfigurationMap(
     mapOf(
         "AZURE_APP_WELL_KNOWN_URL" to "https://login.microsoftonline.com/966ac572-f5b7-4bbe-aa88-c76419c0f851/v2.0/.well-known/openid-configuration",
+        "AZURE_OPENID_CONFIG_TOKEN_ENDPOINT" to "https://login.microsoftonline.com/966ac572-f5b7-4bbe-aa88-c76419c0f851/oauth2/v2.0/token",
         "AZURE_TENANT" to "966ac572-f5b7-4bbe-aa88-c76419c0f851",
         "AZURE_AUTHORITY_ENDPOINT" to "https://login.microsoftonline.com",
-        "AZURE_OPENID_CONFIG_TOKEN_ENDPOINT" to "https://login.microsoftonline.com/966ac572-f5b7-4bbe-aa88-c76419c0f851/oauth2/v2.0/token",
-        "AZURE_TENANT" to "",
-        "AZURE_AUTHORITY_ENDPOINT" to "",
         "SERVICE_USER_USERNAME" to "test",
         "AZURE_APP_CLIENT_SECRET" to "",
         "SECURITY_TOKEN_SERVICE_URL" to "",
@@ -24,7 +22,7 @@ private val defaultProperties = ConfigurationMap(
         "NAIS_APP_NAME" to "",
         "NAIS_CLUSTER_NAME" to "",
         "NAIS_APP_IMAGE" to "",
-        "AZURE_APP_CLIENT_ID" to "f934ccb1-e811-4a26-9b7f-a9b66c928d2c",
+        "AZURE_APP_CLIENT_ID" to "1305007d-29b8-441d-b87c-3139be10c1dc",
         "AZURE_APP_TENANT_ID" to "",
     )
 )

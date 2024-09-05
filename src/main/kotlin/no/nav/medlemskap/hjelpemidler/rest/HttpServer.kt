@@ -54,6 +54,7 @@ fun createHttpServer() = embeddedServer(Netty, applicationEngineEnvironment {
             register(ContentType.Application.Json, JacksonConverter(objectMapper))
         }
 
+
         if (useAuthentication) {
             //logger.info { "Installerer authentication" }
             install(Authentication) {
