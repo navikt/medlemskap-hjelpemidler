@@ -1,6 +1,7 @@
 package no.nav.medlemskap.hjelpemidler
 
 import no.nav.medlemskap.hjelpemidler.config.Environment
+import no.nav.medlemskap.hjelpemidler.rest.createHttpServer
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
@@ -17,6 +18,6 @@ class Application(private val env: Environment = System.getenv()) {
     fun start() {
         log.info("Start application")
 
-        naisLiveness().start(wait = true)
+        createHttpServer().start(wait = true)
     }
 }

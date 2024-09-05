@@ -8,8 +8,8 @@ import io.prometheus.client.exporter.common.TextFormat
 import kotlinx.coroutines.Job
 import mu.KotlinLogging
 import no.nav.medlemskap.hjelpemidler.Metrics
+import no.nav.medlemskap.hjelpemidler.rest.writeMetrics004
 
-import no.nav.medlemskap.sykepenger.lytter.service.BomloService
 import java.util.*
 
 private val logger = KotlinLogging.logger { }
