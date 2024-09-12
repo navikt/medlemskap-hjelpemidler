@@ -1,5 +1,6 @@
 package no.nav.medlemskap.hjelpemidler
 
+import no.nav.medlemskap.hjelpemidler.clients.MedlemskapOppslagClient
 import no.nav.medlemskap.hjelpemidler.config.Environment
 import no.nav.medlemskap.hjelpemidler.rest.createHttpServer
 import no.nav.medlemskap.hjelpemidler.services.HjelpeMidlerService
@@ -18,7 +19,7 @@ class Application(private val env: Environment = System.getenv()) {
 
     fun start() {
         log.info("Start application")
-        val hjelpeMidlerService = HjelpeMidlerService()
+        val hjelpeMidlerService = HjelpeMidlerService(MedlemskapOppslagClient())
         createHttpServer(hjelpeMidlerService).start(wait = true)
     }
 }
