@@ -9,10 +9,14 @@ import no.nav.medlemskap.hjelpemidler.config.Configuration
 
 fun Routing.devgcpRoutes() {
     get("/token") {
+        try {
+            val client = AzureAdClient(Configuration())
 
-        val client = AzureAdClient(Configuration())
-
-        call.respondText(client.hentTokenScopetMotSelf().token, ContentType.Text.Plain, HttpStatusCode.OK)
+            call.respondText(client.hentTokenScopetMotSelf().token, ContentType.Text.Plain, HttpStatusCode.OK)
+        }
+        catch (e:Exception){
+            call.respond(status = HttpStatusCode.InternalServerError,e.message!!)
+        }
 
     }
 
