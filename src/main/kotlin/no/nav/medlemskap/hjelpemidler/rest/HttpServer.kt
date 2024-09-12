@@ -24,12 +24,13 @@ import kotlinx.coroutines.withContext
 import no.nav.medlemskap.hjelpemidler.Metrics
 import no.nav.medlemskap.hjelpemidler.config.*
 import no.nav.medlemskap.hjelpemidler.config.JwtConfig.Companion.REALM
+import no.nav.medlemskap.hjelpemidler.services.HjelpeMidlerService
 import no.nav.medlemskap.sykepenger.lytter.nais.naisRoutes
 
 import java.io.Writer
 import java.util.*
 
-fun createHttpServer() = embeddedServer(Netty, applicationEngineEnvironment {
+fun createHttpServer(hjelpeMidlerService: HjelpeMidlerService) = embeddedServer(Netty, applicationEngineEnvironment {
     val useAuthentication: Boolean = true
     val configuration: Configuration = Configuration()
     val azureAdOpenIdConfiguration: AzureAdOpenIdConfiguration = getAadConfig(configuration.azureAd)
@@ -73,7 +74,10 @@ fun createHttpServer() = embeddedServer(Netty, applicationEngineEnvironment {
 
         routing {
             naisRoutes()
-            hjelpemidlerRoutes()
+            hjelpemidlerRoutes(hjelpeMidlerService)
+            if ("dev-gcp" ==  configuration.cluster){
+                devgcpRoutes()
+            }
         }
     }
 })
