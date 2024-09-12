@@ -34,6 +34,10 @@ spec:
   kafka:
     pool: nav-dev
   accessPolicy:
+    inbound:
+      rules:
+        - application: hm-medlemskap
+          namespace: teamdigihot
     outbound:
       rules:
       external:
