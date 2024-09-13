@@ -40,7 +40,7 @@ class HjelpeMidlerService():IJegKanHåndtereHjelpeMidlerRequest {
         * spørsmålet er om det er klienten eller denne tjenesten som skal ha dette ansvaret
         * */
         val lovmeRequest = RequestMapper().mapHjelpemidlerRequestToLovmeRequest(hjelpeMidlerRequest)
-        val respons = kallMedlemskapOppslag(lovmeRequest, UUID.randomUUID().toString())
+        val respons = kallMedlemskapOppslag(lovmeRequest, callId)
         //TODO: Endre signatur på funsjon til å få med callID fra http endepunktet.
         /*
         * 2. gjøre om respons fra regel motor til noe vi klarer å behandle
