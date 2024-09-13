@@ -10,6 +10,7 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import mu.KotlinLogging
 import net.logstash.logback.argument.StructuredArguments
+import no.nav.medlemskap.hjelpemidler.domain.GradertAdresseException
 import no.nav.medlemskap.hjelpemidler.domain.HjelpeMidlerRequest
 import no.nav.medlemskap.hjelpemidler.services.HjelpeMidlerService
 
@@ -31,9 +32,13 @@ fun Routing.hjelpemidlerRoutes(hjelpeMidlerService: HjelpeMidlerService) {
             val request = call.receive<HjelpeMidlerRequest>()
             try {
 
-                val respons = hjelpeMidlerService.handleRequest(request)
+                val respons = hjelpeMidlerService.handleRequest(request,callId)
                 call.respond(HttpStatusCode.OK,respons)
-            } catch (t: Throwable) {
+            }
+            catch (g:GradertAdresseException){
+                call.respond(HttpStatusCode.BadRequest, g.message!!)
+            }
+            catch (t: Throwable) {
                 call.respond(HttpStatusCode.InternalServerError, t.message!!)
             }
         }

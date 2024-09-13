@@ -20,7 +20,7 @@ private val defaultProperties = ConfigurationMap(
         "SECURITY_TOKEN_SERVICE_API_KEY" to "",
         "SERVICE_USER_PASSWORD" to "",
         "MEDL_OPPSLAG_API_KEY" to "",
-        "MEDL_OPPSLAG_BASE_URL" to "https://medlemskap-oppslag.dev.intern.nav.no",
+        "MEDL_OPPSLAG_BASE_URL" to "https://medlemskap-oppslag.intern.dev.nav.no",
         "MEDL_OPPSLAG_CLIENT_ID" to "2719da58-489e-4185-9ee6-74b7e93763d2",
         "NAIS_APP_NAME" to "",
         "NAIS_CLUSTER_NAME" to "dev-gcp",

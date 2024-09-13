@@ -1,7 +1,10 @@
 package no.nav.medlemskap.hjelpemidler
 
+import no.nav.medlemskap.hjelpemidler.clients.AzureAdClient
 import no.nav.medlemskap.hjelpemidler.clients.MedlemskapOppslagClient
+import no.nav.medlemskap.hjelpemidler.config.Configuration
 import no.nav.medlemskap.hjelpemidler.config.Environment
+import no.nav.medlemskap.hjelpemidler.http.cioHttpClient
 import no.nav.medlemskap.hjelpemidler.rest.createHttpServer
 import no.nav.medlemskap.hjelpemidler.services.HjelpeMidlerService
 import org.slf4j.Logger
@@ -19,7 +22,8 @@ class Application(private val env: Environment = System.getenv()) {
 
     fun start() {
         log.info("Start application")
-        val hjelpeMidlerService = HjelpeMidlerService(MedlemskapOppslagClient())
+
+        val hjelpeMidlerService = HjelpeMidlerService()
         createHttpServer(hjelpeMidlerService).start(wait = true)
     }
 }
