@@ -14,7 +14,7 @@ private val defaultProperties = ConfigurationMap(
         "AZURE_TENANT" to "966ac572-f5b7-4bbe-aa88-c76419c0f851",
         "AZURE_AUTHORITY_ENDPOINT" to "https://login.microsoftonline.com",
         "SERVICE_USER_USERNAME" to "test",
-        "AZURE_APP_CLIENT_SECRET" to "",
+        "AZURE_APP_CLIENT_SECRET" to "Mv_8Q~fIAcGcx1qheBxWa2e24_cNG7cXMwgt-c.J",
         "SECURITY_TOKEN_SERVICE_URL" to "",
         "SECURITY_TOKEN_SERVICE_REST_URL" to "",
         "SECURITY_TOKEN_SERVICE_API_KEY" to "",

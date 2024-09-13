@@ -1,7 +1,8 @@
 package no.nav.medlemskap.hjelpemidler.domain
 
-import no.nav.medlemskap.hjelpemidler.config.objectMapper
-import kotlin.random.Random
+import no.nav.medlemskap.hjelpemidler.json.JacksonParser
+import java.lang.UnsupportedOperationException
+
 
 class ResponsMapper {
 
@@ -9,9 +10,16 @@ class ResponsMapper {
         /*
         * Implement logic here to parse the reponse from Lovme and create a correct respons
         * */
-        if (Random.nextBoolean()){
-            return HjelpeMidlerRespons(Status.NEI)
+        return mapToHjelpemidlerRespons(jsonString)
+    }
+
+    private fun mapToHjelpemidlerRespons(jsonString:String):HjelpeMidlerRespons{
+        val medlemskap = JacksonParser().parseMedlemskap(jsonString)
+        when (medlemskap.resultat.svar){
+            "JA" -> return HjelpeMidlerRespons(Status.JA)
+            "NEI"->return HjelpeMidlerRespons(Status.NEI)
+            "UAVKLART"->return HjelpeMidlerRespons(Status.UAVKLART)
         }
-        return HjelpeMidlerRespons(Status.JA)
+        throw UnsupportedOperationException()
     }
 }
