@@ -36,7 +36,7 @@ fun Routing.hjelpemidlerRoutes(hjelpeMidlerService: HjelpeMidlerService) {
                 call.respond(HttpStatusCode.OK,respons)
             }
             catch (g:GradertAdresseException){
-                call.respond(HttpStatusCode.BadRequest, g.message!!)
+                call.respond(HttpStatusCode.Forbidden, g.message!!)
             }
             catch (t: Throwable) {
                 call.respond(HttpStatusCode.InternalServerError, t.message!!)

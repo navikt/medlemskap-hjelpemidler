@@ -1,7 +1,7 @@
 package no.nav.medlemskap.hjelpemidler.services
 
 import kotlinx.coroutines.runBlocking
-import no.nav.medlemskap.hjelpemidler.clients.MedlemskapOppslagGradertAdresseException
+import no.nav.medlemskap.hjelpemidler.clients.MedlemskapOppslagGradertAdresseExceptionMock
 import no.nav.medlemskap.hjelpemidler.clients.MedlemskapOppslagMock
 import no.nav.medlemskap.hjelpemidler.clients.MedlemskapOppslagTimeOutMock
 import no.nav.medlemskap.hjelpemidler.domain.GradertAdresseException
@@ -10,7 +10,6 @@ import no.nav.medlemskap.hjelpemidler.domain.Status
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.fail
-import java.time.LocalDateTime
 import java.util.*
 
 
@@ -18,7 +17,7 @@ class HjelpeMidlerServiceTest {
     @Test()
     fun `skal kaste GradertAdresseException når vi regelmotor kaster graderty Adresse`() = runBlocking {
         val service = HjelpeMidlerService()
-        service.lovmeClient = MedlemskapOppslagGradertAdresseException()
+        service.lovmeClient = MedlemskapOppslagGradertAdresseExceptionMock()
         try{
             val response = service.handleRequest(HjelpeMidlerRequest("1"),UUID.randomUUID().toString())
             fail("Exception skal kastes i dette scenario")
@@ -30,9 +29,6 @@ class HjelpeMidlerServiceTest {
             fail("feil exception bli kastet")
         }
 
-
-        println(LocalDateTime.now().toString())
-        Assertions.assertTrue(true)
     }
     @Test()
     fun `skal kaste Exception når vi regelmotor kaster timeout`() = runBlocking {

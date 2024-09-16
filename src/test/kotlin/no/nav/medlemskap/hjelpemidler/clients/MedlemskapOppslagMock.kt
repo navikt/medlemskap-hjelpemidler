@@ -27,9 +27,8 @@ class MedlemskapOException():LovemeAPI{
     }
 }
 
-class MedlemskapOppslagGradertAdresseException():LovemeAPI{
+class MedlemskapOppslagGradertAdresseExceptionMock():LovemeAPI{
     override suspend fun vurderMedlemskap(medlOppslagRequest: MedlOppslagRequest, callId: String): String {
-
         throw HttpResponseException(503,"GradertAdresseException. Lovme skal ikke  kalles for personer med kode 6/7")
     }
 }
